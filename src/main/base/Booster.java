@@ -77,8 +77,8 @@ public class Booster {
             SWIGTYPE_p_void data_handle = data.getDataHandle(params_str, false);
             Utils.check(lightgbmlib.LGBM_BoosterPredictForMat(swig_booster, data_handle,
                     lightgbmlibConstants.C_API_DTYPE_FLOAT32, data.getNumOfInstances(), data.getNumOfFeatures(), 1,
-                    lightgbmlibConstants.C_API_PREDICT_NORMAL, -1, "verbosity=-1", len_long_ptr, swig_out_score),
-                    "Booster prediction failed.");
+                    lightgbmlibConstants.C_API_PREDICT_NORMAL, -1, num_iterations, "verbosity=-1", len_long_ptr,
+                    swig_out_score), "Booster prediction failed.");
 
             float[] outputs = new float[data.getNumOfInstances()];
 
@@ -102,7 +102,8 @@ public class Booster {
         if (swig_booster == null) {
             throw new IllegalStateException("Booster has not been trained.");
         } else {
-            return lightgbmlib.LGBM_BoosterSaveModelToStringSWIG(swig_booster, 0, -1, 1, lightgbmlib.new_int64_tp());
+            return lightgbmlib.LGBM_BoosterSaveModelToStringSWIG(swig_booster, 0, -1, 1,
+                    lightgbmlib.C_API_FEATURE_IMPORTANCE_SPLIT, lightgbmlib.new_int64_tp());
         }
     }
 

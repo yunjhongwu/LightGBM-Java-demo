@@ -15,6 +15,7 @@ public class Dataset {
         lightgbmlib.LGBM_DatasetCreateFromMat(lightgbmlib.float_to_voidp_ptr(lightgbmlib.new_floatArray(1)),
                 lightgbmlibConstants.C_API_DTYPE_FLOAT32, 1, 1, 1, "verbose=-1", null, lightgbmlib.voidpp_handle());
     }
+
     private final int num_instances;
     private final int num_features;
     private final String[] feature_names;
@@ -43,7 +44,6 @@ public class Dataset {
         if (feature_names == null || data[0].length != feature_names.length) {
             throw new IllegalArgumentException("Incorrect specifications for feature names");
         }
-
         this.has_labels = labels != null;
         this.has_weights = weights != null;
 

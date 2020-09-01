@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>lightgbm-java</groupId>
 	<artifactId>lightgbm-java</artifactId>
-	<version>0.1.0</version>
+	<version>0.3.0</version>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
@@ -18,7 +18,7 @@
 		</plugins>
 		<resources>
 			<resource>
-				<directory>/src/main/resources</directory>
+				<directory>src/main/resources</directory>
 				<includes>
 					<include>lib_lightgbm.so</include>
 					<include>lib_lightgbm_swig.so</include>
@@ -27,7 +27,7 @@
 		</resources>
 	</build>
 	<properties>
-		<lightgbmlib.version>2.3.180</lightgbmlib.version>
+		<lightgbmlib.version>3.0.000</lightgbmlib.version>
 	</properties>
 	<dependencies>
 		<dependency>
